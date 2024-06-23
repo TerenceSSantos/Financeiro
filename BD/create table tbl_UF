@@ -1,0 +1,6 @@
+CREATE TABLE tbl_UF
+(
+   sigla_uf CHAR(2) NOT NULL,
+   nome_uf VARCHAR(30) NOT NULL,
+   CONSTRAINT PK_tblUF PRIMARY KEY(sigla_uf)
+);

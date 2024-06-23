@@ -1,3 +1,5 @@
 Token
 .directory
 Diagramas/*.autosave
+Doc
+.gitignore
