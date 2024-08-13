@@ -15,7 +15,7 @@ uses
    ComCtrls,
    StdCtrls,
    DBGrids,
-   EditBtn,
+   EditBtn, BCMDButtonFocus, BCButtonFocus,
    DateTimePicker,
    ACBrValidador,
    ACBrCEP;
@@ -27,6 +27,8 @@ type
    TfrmCadCredorDevedor = class(TForm)
       ACBrCEP: TACBrCEP;
       ACBrValidador: TACBrValidador;
+      bcbtnCadCredDev: TBCButtonFocus;
+      bcbtnEndereco: TBCButtonFocus;
       dbgrdCredorDevedor: TDBGrid;
       dtedtDataNasc: TDateEdit;
       edtAddress: TEdit;
@@ -52,12 +54,12 @@ type
       Panel1: TPanel;
       Panel2: TPanel;
       pcCadCredorDevedor: TPageControl;
-      pnlButtonCreDev: TPanel;
-      pnlButtonEndereco: TPanel;
       rgTipoPessoa: TRadioGroup;
       TbShtCredorDevedor: TTabSheet;
       TbShtEndereco: TTabSheet;
       procedure ACBrCEPBuscaEfetuada(Sender: TObject);
+      procedure bcbtnCadCredDevClick(Sender: TObject);
+      procedure bcbtnEnderecoClick(Sender: TObject);
       procedure dtedtDataNascExit(Sender: TObject);
       procedure edtCEPEnter(Sender: TObject);
       procedure edtCEPExit(Sender: TObject);
@@ -76,7 +78,7 @@ type
       function ClearFormatting(const doc: string): string;
 
       //Fazer a troca de aba e trocar as cores dos botões para indicar qual aba está ativa.
-      procedure ActiveDeactiveButton(AButton: TPanel; ATabSheet: TTabSheet);
+      procedure ActiveDeactiveButton(AButton: TBCButtonFocus; ATabSheet: TTabSheet);
    public
 
    end;
@@ -96,19 +98,21 @@ uses
 procedure TfrmCadCredorDevedor.FormCreate(Sender: TObject);
 begin
    pcCadCredorDevedor.PageIndex := 0;
-   pnlButtonEndereco.Width := panel1.ClientWidth div 2;
-   pnlButtonCreDev.Width := panel1.ClientWidth div 2;
+//   pnlButtonEndereco.Width := panel1.ClientWidth div 2;
+   bcbtnCadCredDev.Width := panel1.ClientWidth div 2;
+//   pnlButtonCreDev.Width := panel1.ClientWidth div 2;
+   bcbtnEndereco.Width := panel1.ClientWidth div 2;
    dtedtDataNasc.MaxDate := Date;
 end;
 
 procedure TfrmCadCredorDevedor.pnlButtonCreDevClick(Sender: TObject);
 begin
-   ActiveDeactiveButton(pnlButtonCreDev, TbShtEndereco);
+   //ActiveDeactiveButton(pnlButtonCreDev, TbShtEndereco);
 end;
 
 procedure TfrmCadCredorDevedor.pnlButtonEnderecoClick(Sender: TObject);
 begin
-   ActiveDeactiveButton(pnlButtonEndereco, TbShtCredorDevedor);
+   //ActiveDeactiveButton(pnlButtonEndereco, TbShtCredorDevedor);
 end;
 
 procedure TfrmCadCredorDevedor.edtCpfCnpjEnter(Sender: TObject);
@@ -141,9 +145,19 @@ begin
       edtNeighborhood.Text:= ACBrCEP.Enderecos[0].Bairro;
       edtCity.Text:= ACBrCEP.Enderecos[0].Municipio;
    except
-     on E: {EListError}Exception do
+     on E: EListError{Exception} do
         ShowMessage('Endereço não encontrado com o CEP fornecido!');
    end;
+end;
+
+procedure TfrmCadCredorDevedor.bcbtnCadCredDevClick(Sender: TObject);
+begin
+   ActiveDeactiveButton(bcbtnCadCredDev, TbShtEndereco);
+end;
+
+procedure TfrmCadCredorDevedor.bcbtnEnderecoClick(Sender: TObject);
+begin
+   ActiveDeactiveButton(bcbtnEndereco, TbShtCredorDevedor);
 end;
 
 procedure TfrmCadCredorDevedor.dtedtDataNascExit(Sender: TObject);
@@ -151,7 +165,7 @@ begin
    if dtedtDataNasc.Text <> EmptyStr then
       lblIdade.Caption := CalculateAge(dtedtDataNasc.Date)
    else
-      lblIdade.Caption := 'Idade não informada!';
+      lblIdade.Caption := 'Data não informada!';
 end;
 
 procedure TfrmCadCredorDevedor.edtCEPExit(Sender: TObject);
@@ -180,8 +194,8 @@ end;
 
 procedure TfrmCadCredorDevedor.edtCpfCnpjEditingDone(Sender: TObject);
 begin
-   if Length(edtCpfCnpj.Text) = 0 then
-      edtCpfCnpj.NumbersOnly := false;
+   if Length(edtCpfCnpj.Text) = 0 then     // Caso o campo esteja vazio ao final, na saída,
+      edtCpfCnpj.NumbersOnly := false;     // permitirá a exibição do TEXTHINT
 end;
 
 procedure TfrmCadCredorDevedor.edtCpfCnpjExit(Sender: TObject);
@@ -220,8 +234,8 @@ end;
 
 procedure TfrmCadCredorDevedor.edtTelefoneEditingDone(Sender: TObject);
 begin
-   if Length(edtTelefone.Text) = 0 then
-      edtTelefone.NumbersOnly := false;
+   if Length(edtTelefone.Text) = 0 then   // Caso o campo esteja vazio ao final, na saída,
+      edtTelefone.NumbersOnly := false;   // permitirá a exibição do TEXTHINT
 end;
 
 procedure TfrmCadCredorDevedor.edtTelefoneEnter(Sender: TObject);
@@ -245,6 +259,7 @@ begin
 
    if edtTelefone.Text <> EmptyStr then
       edtTelefone.Text := FormatarFone(edtTelefone.Text);
+
 end;
 
 procedure TfrmCadCredorDevedor.rgTipoPessoaSelectionChanged(Sender: TObject);
@@ -288,25 +303,22 @@ begin
    result := noMask;
 end;
 
-procedure TfrmCadCredorDevedor.ActiveDeactiveButton(AButton: TPanel; ATabSheet: TTabSheet);
+procedure TfrmCadCredorDevedor.ActiveDeactiveButton(AButton: TBCButtonFocus; ATabSheet: TTabSheet);
 begin
-   if (AButton.Name = 'pnlButtonCreDev') and (ATabSheet.Name = 'TbShtEndereco') then
+   if (AButton.Name = 'bcbtnCadCredDev') and (ATabSheet.Name = 'TbShtEndereco') then
    begin
       pcCadCredorDevedor.PageIndex := 0;
-      AButton.BevelOuter := bvLowered;
-      AButton.Color := $00C0DDC1;   // Verde Dinheiro
-      pnlButtonEndereco.BevelOuter := bvRaised;
-      pnlButtonEndereco.Color := $00D2EDF5; // Amarelo Creme
+      AButton.StateNormal.Background.Color := clTeal;
+      bcbtnEndereco.StateNormal.Background.Color := clInactiveCaption;
    end
    else
-   if (AButton.Name = 'pnlButtonEndereco') and (ATabSheet.Name = 'TbShtCredorDevedor') then
+   if (AButton.Name = 'bcbtnEndereco') and (ATabSheet.Name = 'TbShtCredorDevedor') then
    begin
       pcCadCredorDevedor.PageIndex := 1;
-      AButton.BevelOuter := bvLowered;
-      AButton.Color := $00C0DDC1; // Verde Dinheiro
-      pnlButtonCreDev.BevelOuter := bvRaised;
-      pnlButtonCreDev.Color := $00D2EDF5; // Amarelo Creme
+      AButton.StateNormal.Background.Color := clTeal;
+      bcbtnCadCredDev.StateNormal.Background.Color := clInactiveCaption;
    end;
+
 end;
 
 end.

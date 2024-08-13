@@ -18,7 +18,7 @@ type
       procedure DataModuleCreate(Sender: TObject);
       procedure zconConexaoBeforeConnect(Sender: TObject);
    private
-
+      procedure ConfigIni;
    public
 
    end;
@@ -45,6 +45,17 @@ begin
       Port := 30500;
       HostName := 'localhost';
    end;
+end;
+
+procedure TdmConexao.ConfigIni;
+var
+   arquivoIni : string;
+   arquivo : TextFile;
+begin
+   AssignFile(arquivo, arquivoIni);
+   Rewrite(arquivo);
+
+
 end;
 
 procedure TdmConexao.DataModuleCreate(Sender: TObject);

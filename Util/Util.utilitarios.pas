@@ -10,10 +10,10 @@ uses
    fphttpclient,
    DateUtils;
 
-// função para testar se existe conexão com a internet
+   // função para testar se existe conexão com a internet
 function TestInternetConnection: Boolean;
 
-// função para calcular a idade.
+   // função para calcular a idade.
 function CalculateAge(ABirthDate: TDate): string;
 
 implementation
@@ -61,20 +61,22 @@ begin
    end;
 
 //       ***** A seguir a formatação do texto da idade em dias, meses e anos. *****
+
+         {** ANOS **}
    if years > 0 then
       if years = 1 then
          textYear := IntToStr(years) + ' ano'
       else
          textYear := IntToStr(years) + ' anos';
 
-
+         {** MESES **}
    if months > 0 then
       if months = 1 then
          textMonth := IntToStr(months) + ' mês'
       else
          textMonth := IntToStr(months) + ' meses';
 
-
+         {** DIAS **}
    day := DaysBetween(actualDate, ABirthDate);
    if  day > 0 then
       if day = 1 then

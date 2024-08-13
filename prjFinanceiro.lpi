@@ -33,6 +33,9 @@
     </RunParams>
     <RequiredPackages>
       <Item>
+        <PackageName Value="bgracontrols"/>
+      </Item>
+      <Item>
         <PackageName Value="ACBrTCP"/>
       </Item>
       <Item>
@@ -94,7 +97,7 @@
       <Unit>
         <Filename Value="View/View.uCadNamePayments.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="frmTypePayment"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
       </Unit>

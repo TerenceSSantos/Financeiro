@@ -18,7 +18,8 @@ uses
    DM.uConexao,
    View.uCadCredorDevedor,
    View.uConfigurations,
-   View.uCadNamePayments, Util.utilitarios
+   View.uCadNamePayments,
+   Util.utilitarios
    { you can add units after this };
 
 {$R *.res}

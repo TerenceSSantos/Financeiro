@@ -11,13 +11,14 @@ uses
    Controls,
    Graphics,
    Dialogs,
-   StdCtrls;
+   StdCtrls, DBGrids;
 
 type
 
-   { TForm1 }
+   { TfrmTypePayment }
 
-   TForm1 = class(TForm)
+   TfrmTypePayment = class(TForm)
+      dbgrdTypePay: TDBGrid;
       edtNamePayment: TEdit;
       lblNamePayment: TLabel;
    private
@@ -27,7 +28,7 @@ type
    end;
 
 var
-   Form1: TForm1;
+   frmTypePayment: TfrmTypePayment;
 
 implementation
 

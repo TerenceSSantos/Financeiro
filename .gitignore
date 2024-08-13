@@ -4,3 +4,5 @@ Diagramas/*.autosave
 Doc
 .gitignore
 TeoFinanceiro
+lib
+lib/*

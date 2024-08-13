@@ -8,7 +8,8 @@
         <Filename Value="prjFinanceiro.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="2"/>
-        <CursorPos X="4" Y="21"/>
+        <TopLine Value="4"/>
+        <CursorPos X="4" Y="22"/>
         <UsageCount Value="214"/>
         <Loaded Value="True"/>
       </Unit>
@@ -19,7 +20,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="7"/>
-        <TopLine Value="46"/>
+        <TopLine Value="45"/>
         <CursorPos X="60" Y="61"/>
         <UsageCount Value="214"/>
         <Loaded Value="True"/>
@@ -43,8 +44,8 @@
         <ComponentName Value="dmConexao"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <TopLine Value="33"/>
-        <CursorPos X="60" Y="40"/>
+        <TopLine Value="38"/>
+        <CursorPos X="11" Y="56"/>
         <UsageCount Value="214"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -57,8 +58,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="151"/>
-        <CursorPos X="73" Y="151"/>
+        <TopLine Value="144"/>
+        <CursorPos X="32" Y="168"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -72,19 +73,20 @@
         <EditorIndex Value="6"/>
         <TopLine Value="38"/>
         <CursorPos X="32" Y="57"/>
-        <UsageCount Value="126"/>
+        <UsageCount Value="169"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="View/View.uCadNamePayments.pas"/>
         <IsPartOfProject Value="True"/>
-        <ComponentName Value="Form1"/>
+        <ComponentName Value="frmTypePayment"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="5"/>
+        <TopLine Value="15"/>
         <CursorPos X="4" Y="14"/>
-        <UsageCount Value="123"/>
+        <UsageCount Value="166"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -92,18 +94,9 @@
         <Filename Value="Util/Util.utilitarios.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="8"/>
-        <CursorPos X="25" Y="17"/>
-        <UsageCount Value="74"/>
+        <CursorPos X="4" Y="16"/>
+        <UsageCount Value="117"/>
         <Loaded Value="True"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/comctrls.pp"/>
-        <UnitName Value="ComCtrls"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="411"/>
-        <CursorPos X="15" Y="422"/>
-        <UsageCount Value="2"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/stdctrls.pp"/>
@@ -111,52 +104,43 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1313"/>
         <CursorPos X="3" Y="1325"/>
-        <UsageCount Value="14"/>
-      </Unit>
-      <Unit>
-        <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/include/customnotebook.inc"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="867"/>
-        <CursorPos X="6" Y="887"/>
-        <UsageCount Value="2"/>
+        <UsageCount Value="11"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/include/wincontrol.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="5420"/>
         <CursorPos Y="5430"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="6"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/lazarus/components/ACBr/Fontes/ACBrDiversos/ACBrValidador.pas"/>
-        <EditorIndex Value="9"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="2191"/>
         <CursorPos X="39" Y="2209"/>
-        <UsageCount Value="92"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="89"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/include/control.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2295"/>
         <CursorPos Y="2305"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/include/customedit.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="634"/>
         <CursorPos Y="645"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/controls.pp"/>
         <UnitName Value="Controls"/>
-        <EditorIndex Value="8"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="1599"/>
         <CursorPos X="29" Y="1610"/>
-        <UsageCount Value="27"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="24"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/lazarus/lcl/editbtn.pas"/>
@@ -164,114 +148,31 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="575"/>
         <CursorPos X="3" Y="586"/>
-        <UsageCount Value="6"/>
+        <UsageCount Value="3"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/fpcsrc/packages/rtl-objpas/src/inc/dateutil.inc"/>
-        <EditorIndex Value="10"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="635"/>
         <CursorPos X="3" Y="637"/>
-        <UsageCount Value="28"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="25"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/fpcsrc/rtl/objpas/sysutils/datih.inc"/>
-        <EditorIndex Value="12"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="121"/>
         <CursorPos X="10" Y="131"/>
-        <UsageCount Value="25"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="22"/>
       </Unit>
       <Unit>
         <Filename Value="../../../FPCUpDeluxe/fpcsrc/rtl/objpas/sysutils/dati.inc"/>
-        <EditorIndex Value="11"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="245"/>
         <CursorPos X="3" Y="250"/>
-        <UsageCount Value="25"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="22"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="224" TopLine="211"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="225" TopLine="211"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="227" TopLine="211"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="229" TopLine="211"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="224" TopLine="214"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="225" TopLine="214"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="227" TopLine="214"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="230" TopLine="214"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="232" TopLine="214"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="233" TopLine="215"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="235" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="224" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="225" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="229" Column="2" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="224" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="225" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="227" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="235" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="224" TopLine="217"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="225" TopLine="217"/>
-      </Position>
       <Position>
         <Filename Value="View/View.uCadCredorDevedor.pas"/>
         <Caret Line="227" TopLine="217"/>
@@ -312,26 +213,90 @@
         <Filename Value="View/View.uCadCredorDevedor.pas"/>
         <Caret Line="103" Column="33" TopLine="92"/>
       </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="151" Column="73" TopLine="151"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadNamePayments.pas"/>
+        <Caret Line="14" Column="4"/>
+      </Position>
+      <Position>
+        <Filename Value="DM/DM.uConexao.pas"/>
+        <Caret Line="21" Column="25" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="310" Column="58" TopLine="283"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="309" Column="58" TopLine="286"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="310" Column="58" TopLine="287"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="311" Column="58" TopLine="288"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="310" Column="58" TopLine="287"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="311" Column="58" TopLine="288"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="310" Column="58" TopLine="287"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="104" Column="3" TopLine="104"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="316" Column="40" TopLine="298"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="156" TopLine="144"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="162" Column="31" TopLine="144"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="157" Column="46" TopLine="144"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="117" Column="6" TopLine="103"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="310" TopLine="275"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="323" Column="4" TopLine="304"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="322" Column="4" TopLine="303"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uCadCredorDevedor.pas"/>
+        <Caret Line="321" Column="4" TopLine="302"/>
+      </Position>
     </JumpHistory>
     <RunParams>
       <FormatVersion Value="2"/>
       <Modes ActiveMode=""/>
     </RunParams>
   </ProjectSession>
-  <Debugging>
-    <Watches>
-      <Item>
-        <Expression Value="TEDIT(edtTelefone).FNUMBERSONLY"/>
-      </Item>
-      <Item>
-        <Expression Value="TEDIT(edtTelefone).FTEXTHINT"/>
-      </Item>
-      <Item>
-        <Expression Value="TEDIT(edtNome).FNUMBERSONLY"/>
-      </Item>
-      <Item>
-        <Expression Value="TEDIT(edtNome).FTEXTHINT"/>
-      </Item>
-    </Watches>
-  </Debugging>
 </CONFIG>
