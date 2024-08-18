@@ -29,9 +29,11 @@ object frmPrincipal: TfrmPrincipal
       Align = alClient
       ButtonHeight = 59
       ButtonWidth = 23
+      Color = 12705217
       EdgeBorders = []
-      Font.Color = clTeal
+      Font.Color = 8487169
       Images = dmImagens.imglstImagens
+      ParentColor = False
       ParentFont = False
       ShowCaptions = True
       TabOrder = 0

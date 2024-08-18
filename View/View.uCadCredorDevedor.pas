@@ -55,6 +55,16 @@ type
       Panel2: TPanel;
       pcCadCredorDevedor: TPageControl;
       rgTipoPessoa: TRadioGroup;
+      shpUnderlineNome: TShape;
+      shpUnderlineCpfCnpj: TShape;
+      shpUnderlineTelefone: TShape;
+      shpUnderlineTelefone1: TShape;
+      shpUnderlineCep: TShape;
+      shpUnderlineLogradouro: TShape;
+      shpUnderlineNumero: TShape;
+      shpUnderlineComplemento: TShape;
+      shpUnderlineBairro: TShape;
+      shpUnderlineCidade: TShape;
       TbShtCredorDevedor: TTabSheet;
       TbShtEndereco: TTabSheet;
       procedure ACBrCEPBuscaEfetuada(Sender: TObject);
@@ -103,6 +113,7 @@ begin
 //   pnlButtonCreDev.Width := panel1.ClientWidth div 2;
    bcbtnEndereco.Width := panel1.ClientWidth div 2;
    dtedtDataNasc.MaxDate := Date;
+   dtedtDataNasc.BorderWidth := 0;
 end;
 
 procedure TfrmCadCredorDevedor.pnlButtonCreDevClick(Sender: TObject);
@@ -267,6 +278,7 @@ begin
    lblCpfCnpj.Visible := true;
    edtCpfCnpj.Visible := true;
    edtCpfCnpj.Text := EmptyStr;
+   shpUnderlineCpfCnpj.Visible := true;
    if rgTipoPessoa.ItemIndex = 0 then
    begin
       lblCpfCnpj.Caption := 'CPF';
@@ -287,6 +299,7 @@ begin
    begin
       lblCpfCnpj.Visible := false;
       edtCpfCnpj.Visible := false;
+      shpUnderlineCpfCnpj.Visible := false;
    end;
 end;
 
