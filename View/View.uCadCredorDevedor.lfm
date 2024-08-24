@@ -9,6 +9,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
   ClientHeight = 395
   ClientWidth = 678
   OnCreate = FormCreate
+  OnShow = FormShow
   Position = poScreenCenter
   LCLVersion = '3.2.0.0'
   object Panel1: TPanel
@@ -303,6 +304,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           ParentBackground = False
           ParentFont = False
           TabOrder = 1
+          TabStop = True
         end
         object lblCpfCnpj: TLabel
           AnchorSideLeft.Control = edtCpfCnpj
@@ -320,11 +322,11 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Visible = False
         end
         object lblDtNascimento: TLabel
-          AnchorSideLeft.Control = dtedtDataNasc
-          AnchorSideBottom.Control = dtedtDataNasc
+          AnchorSideLeft.Control = pnlBirthDate
+          AnchorSideBottom.Control = pnlBirthDate
           Left = 16
           Height = 22
-          Top = 135
+          Top = 131
           Width = 153
           Anchors = [akLeft, akBottom]
           Caption = 'Data de Nascimento'
@@ -374,27 +376,8 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           OnEnter = edtCpfCnpjEnter
           OnExit = edtCpfCnpjExit
         end
-        object dtedtDataNasc: TDateEdit
-          Left = 16
-          Height = 31
-          Top = 157
-          Width = 127
-          CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-          DateOrder = doNone
-          DateFormat = 'dd/mm/yyyy'
-          MinDate = 10959
-          ButtonWidth = 23
-          AutoSize = False
-          NumGlyphs = 1
-          Enabled = False
-          Flat = True
-          MaxLength = 0
-          OnExit = dtedtDataNascExit
-          TabOrder = 3
-          Text = 'dtedtDataNasc'
-        end
         object lblIdade: TLabel
-          Left = 153
+          Left = 138
           Height = 19
           Top = 162
           Width = 36
@@ -454,15 +437,52 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Pen.Style = psClear
         end
         object shpUnderlineTelefone1: TShape
-          AnchorSideLeft.Control = dtedtDataNasc
-          AnchorSideTop.Control = dtedtDataNasc
+          AnchorSideLeft.Control = pnlBirthDate
+          AnchorSideTop.Control = pnlBirthDate
           AnchorSideTop.Side = asrBottom
+          AnchorSideRight.Control = pnlBirthDate
+          AnchorSideRight.Side = asrBottom
           Left = 16
           Height = 4
-          Top = 188
-          Width = 100
+          Top = 180
+          Width = 96
+          Anchors = [akTop, akLeft, akRight]
           Brush.Color = 8487169
           Pen.Style = psClear
+        end
+        object pnlBirthDate: TPanel
+          Left = 16
+          Height = 27
+          Top = 153
+          Width = 96
+          BevelOuter = bvNone
+          ClientHeight = 27
+          ClientWidth = 96
+          ParentBackground = False
+          TabOrder = 3
+          TabStop = True
+          object dtedtDataNasc: TDateEdit
+            Left = -2
+            Height = 31
+            Top = -2
+            Width = 127
+            CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+            DateOrder = doNone
+            DateFormat = 'dd/mm/yyyy'
+            MinDate = 10959
+            ButtonWidth = 23
+            AutoSize = False
+            NumGlyphs = 1
+            Enabled = False
+            Font.Height = -15
+            Font.Name = 'Sans'
+            Font.Style = [fsBold]
+            MaxLength = 0
+            OnExit = dtedtDataNascExit
+            ParentFont = False
+            TabOrder = 0
+            TextHint = '00/00/0000'
+          end
         end
       end
       object TbShtEndereco: TTabSheet

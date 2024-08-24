@@ -54,6 +54,7 @@ type
       Panel1: TPanel;
       Panel2: TPanel;
       pcCadCredorDevedor: TPageControl;
+      pnlBirthDate: TPanel;
       rgTipoPessoa: TRadioGroup;
       shpUnderlineNome: TShape;
       shpUnderlineCpfCnpj: TShape;
@@ -80,8 +81,7 @@ type
       procedure edtTelefoneEnter(Sender: TObject);
       procedure edtTelefoneExit(Sender: TObject);
       procedure FormCreate(Sender: TObject);
-      procedure pnlButtonCreDevClick(Sender: TObject);
-      procedure pnlButtonEnderecoClick(Sender: TObject);
+      procedure FormShow(Sender: TObject);
       procedure rgTipoPessoaSelectionChanged(Sender: TObject);
    private
       // Retirar a formatação e retornar somente os números
@@ -108,22 +108,14 @@ uses
 procedure TfrmCadCredorDevedor.FormCreate(Sender: TObject);
 begin
    pcCadCredorDevedor.PageIndex := 0;
-//   pnlButtonEndereco.Width := panel1.ClientWidth div 2;
    bcbtnCadCredDev.Width := panel1.ClientWidth div 2;
-//   pnlButtonCreDev.Width := panel1.ClientWidth div 2;
    bcbtnEndereco.Width := panel1.ClientWidth div 2;
    dtedtDataNasc.MaxDate := Date;
-   dtedtDataNasc.BorderWidth := 0;
 end;
 
-procedure TfrmCadCredorDevedor.pnlButtonCreDevClick(Sender: TObject);
+procedure TfrmCadCredorDevedor.FormShow(Sender: TObject);
 begin
-   //ActiveDeactiveButton(pnlButtonCreDev, TbShtEndereco);
-end;
-
-procedure TfrmCadCredorDevedor.pnlButtonEnderecoClick(Sender: TObject);
-begin
-   //ActiveDeactiveButton(pnlButtonEndereco, TbShtCredorDevedor);
+   edtNome.SetFocus;
 end;
 
 procedure TfrmCadCredorDevedor.edtCpfCnpjEnter(Sender: TObject);
@@ -279,6 +271,7 @@ begin
    edtCpfCnpj.Visible := true;
    edtCpfCnpj.Text := EmptyStr;
    shpUnderlineCpfCnpj.Visible := true;
+
    if rgTipoPessoa.ItemIndex = 0 then
    begin
       lblCpfCnpj.Caption := 'CPF';
@@ -291,6 +284,7 @@ begin
    begin
       lblCpfCnpj.Caption := 'CNPJ';
       dtedtDataNasc.Clear;
+      dtedtDataNasc.Enabled := false;
       dtedtDataNasc.Enabled := false;
       ACBrValidador.TipoDocto := docCNPJ;
       lblIdade.Visible := false;
