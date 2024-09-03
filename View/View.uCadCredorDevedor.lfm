@@ -11,7 +11,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
-  LCLVersion = '3.2.0.0'
+  LCLVersion = '3.4.0.0'
   object Panel1: TPanel
     Left = 0
     Height = 32
@@ -304,7 +304,6 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           ParentBackground = False
           ParentFont = False
           TabOrder = 1
-          TabStop = True
         end
         object lblCpfCnpj: TLabel
           AnchorSideLeft.Control = edtCpfCnpj

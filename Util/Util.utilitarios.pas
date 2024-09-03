@@ -37,7 +37,7 @@ end;
 
 function CalculateAge(ABirthDate: TDate): string;
 var
-  months, years, day : byte;
+  months, years, days : word;
   actualDate : TDate;
   textYear, textMonth, textDay : string;
 begin
@@ -48,17 +48,10 @@ begin
    actualDate := Date;
    months := 0;
    years := 0;
+   days := 0;
 
-   while (ABirthDate < actualDate) and (DaysBetween(actualDate, ABirthDate) >= 30) do
-   begin
-      inc(months);
-      if months = 12 then
-      begin
-         inc(years);
-         months := 0;
-      end;
-      ABirthDate := IncMonth(ABirthDate);
-   end;
+   //   Procedimento da DateUtil que realiza o cálculo dos anos, meses e dias entre 2 datas
+   PeriodBetween(actualDate, ABirthDate, years, months, days);
 
 //       ***** A seguir a formatação do texto da idade em dias, meses e anos. *****
 
@@ -77,12 +70,12 @@ begin
          textMonth := IntToStr(months) + ' meses';
 
          {** DIAS **}
-   day := DaysBetween(actualDate, ABirthDate);
-   if  day > 0 then
-      if day = 1 then
-         textDay := IntToStr(day) + ' dia'
+//   day := DaysBetween(actualDate, ABirthDate);
+   if  days > 0 then
+      if days = 1 then
+         textDay := IntToStr(days) + ' dia'
       else
-         textDay := IntToStr(day) + ' dias';
+         textDay := IntToStr(days) + ' dias';
 
 
    if textYear <> EmptyStr then

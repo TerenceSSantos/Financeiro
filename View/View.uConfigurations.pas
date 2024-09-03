@@ -23,6 +23,9 @@ type
       edtName: TEdit;
       lblDocument: TLabel;
       lblName: TLabel;
+      ntbkConfig: TNotebook;
+      pageConfigConection: TPage;
+      pageConfigMyData: TPage;
       pnlConfig: TPanel;
       rgTypePerson: TRadioGroup;
       txtTitulo: TStaticText;

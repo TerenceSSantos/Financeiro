@@ -44,8 +44,8 @@
         <ComponentName Value="dmConexao"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
-        <TopLine Value="35"/>
-        <CursorPos Y="46"/>
+        <TopLine Value="98"/>
+        <CursorPos X="7" Y="111"/>
         <UsageCount Value="214"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -56,9 +56,8 @@
         <ComponentName Value="frmCadCredorDevedor"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="227"/>
+        <TopLine Value="215"/>
         <CursorPos X="28" Y="240"/>
         <UsageCount Value="208"/>
         <Loaded Value="True"/>
@@ -70,10 +69,11 @@
         <ComponentName Value="frmConfigurations"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="38"/>
-        <CursorPos X="32" Y="57"/>
-        <UsageCount Value="190"/>
+        <TopLine Value="39"/>
+        <CursorPos X="32" Y="60"/>
+        <UsageCount Value="193"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -86,7 +86,7 @@
         <EditorIndex Value="5"/>
         <TopLine Value="15"/>
         <CursorPos X="4" Y="14"/>
-        <UsageCount Value="187"/>
+        <UsageCount Value="190"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -94,8 +94,9 @@
         <Filename Value="Util/Util.utilitarios.pas"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="4" Y="16"/>
-        <UsageCount Value="138"/>
+        <TopLine Value="69"/>
+        <CursorPos X="92" Y="53"/>
+        <UsageCount Value="141"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -189,66 +190,6 @@
     <JumpHistory HistoryIndex="29">
       <Position>
         <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="290" Column="22" TopLine="285"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="291" Column="22" TopLine="285"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="33" Column="20" TopLine="21"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="74" Column="30" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="114" Column="32" TopLine="93"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="162" Column="45" TopLine="142"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="164" Column="21" TopLine="144"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="165" Column="53" TopLine="145"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="282" Column="22" TopLine="262"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="290" Column="22" TopLine="270"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="291" Column="22" TopLine="271"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="33" Column="20" TopLine="21"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="74" Column="30" TopLine="55"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="113" Column="19" TopLine="93"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
-        <Caret Line="162" Column="45" TopLine="142"/>
-      </Position>
-      <Position>
-        <Filename Value="View/View.uCadCredorDevedor.pas"/>
         <Caret Line="292" Column="28" TopLine="154"/>
       </Position>
       <Position>
@@ -306,6 +247,66 @@
       <Position>
         <Filename Value="View/View.uCadCredorDevedor.pas"/>
         <Caret Line="239" Column="13" TopLine="231"/>
+      </Position>
+      <Position>
+        <Filename Value="Util/Util.utilitarios.pas"/>
+        <Caret Line="88" Column="34" TopLine="74"/>
+      </Position>
+      <Position>
+        <Filename Value="Util/Util.utilitarios.pas"/>
+        <Caret Line="40" Column="22" TopLine="40"/>
+      </Position>
+      <Position>
+        <Filename Value="DM/DM.uConexao.pas"/>
+        <Caret Line="22" Column="35" TopLine="11"/>
+      </Position>
+      <Position>
+        <Filename Value="DM/DM.uConexao.pas"/>
+        <Caret Line="113" Column="10" TopLine="95"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="57" Column="32" TopLine="36"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="56" Column="32" TopLine="35"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="55" Column="32" TopLine="34"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="54" Column="32" TopLine="33"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="53" Column="32" TopLine="32"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="52" Column="32" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="51" Column="32" TopLine="30"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="50" Column="32" TopLine="29"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="51" Column="32" TopLine="30"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="52" Column="32" TopLine="31"/>
+      </Position>
+      <Position>
+        <Filename Value="View/View.uConfigurations.pas"/>
+        <Caret Line="53" Column="32" TopLine="32"/>
       </Position>
     </JumpHistory>
     <RunParams>
