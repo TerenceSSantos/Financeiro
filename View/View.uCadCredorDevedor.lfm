@@ -8,6 +8,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
   Caption = 'Cadastro de Credor / Devedor'
   ClientHeight = 395
   ClientWidth = 678
+  Color = 16448250
   OnCreate = FormCreate
   OnShow = FormShow
   Position = poScreenCenter
@@ -21,6 +22,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
     Caption = 'Panel1'
     ClientHeight = 32
     ClientWidth = 678
+    ParentBackground = False
     TabOrder = 0
     object bcbtnCadCredDev: TBCButtonFocus
       Left = 1
@@ -224,22 +226,20 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
     Caption = 'Panel2'
     ClientHeight = 363
     ClientWidth = 678
-    Color = 15858943
     ParentBackground = False
-    ParentColor = False
     TabOrder = 1
     object pcCadCredorDevedor: TPageControl
       Left = 1
       Height = 361
       Top = 1
       Width = 676
-      ActivePage = TbShtCredorDevedor
+      ActivePage = TbShtEndereco
       Align = alClient
       AutoSize = True
       HotTrack = True
       ShowTabs = False
       Style = tsFlatButtons
-      TabIndex = 0
+      TabIndex = 1
       TabOrder = 0
       object TbShtCredorDevedor: TTabSheet
         Caption = 'Cadastro de Credor / Devedor'
@@ -269,6 +269,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 40
           Width = 632
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -364,6 +365,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 99
           Width = 160
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -391,6 +393,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 157
           Width = 160
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -471,6 +474,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
             MinDate = 10959
             ButtonWidth = 23
             AutoSize = False
+            Color = 13828095
             NumGlyphs = 1
             Enabled = False
             Font.Height = -15
@@ -524,6 +528,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 69
           Width = 490
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -539,6 +544,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 147
           Width = 91
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -567,6 +573,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 147
           Width = 288
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -595,6 +602,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 225
           Width = 255
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -623,6 +631,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 69
           Width = 88
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
@@ -652,6 +661,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           Top = 225
           Width = 288
           BorderStyle = bsNone
+          Color = 13828095
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]

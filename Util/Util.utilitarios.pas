@@ -8,13 +8,25 @@ uses
    Classes,
    SysUtils,
    fphttpclient,
-   DateUtils;
+   DateUtils,
+   {$IFDEF MSWINDOWS}
+   Windows;  // para Windows API pegar o nome do computador
+   {$ENDIF}
+   {$IFDEF UNIX}
+   Unix;   // para Linux API pegar o nome do computador
+   {$ENDIF}
 
    // função para testar se existe conexão com a internet
 function TestInternetConnection: Boolean;
 
    // função para calcular a idade.
 function CalculateAge(ABirthDate: TDate): string;
+
+   //   função para retornar o nome do computador
+function GetComputerName: string;
+
+   // Retirar a formatação e retornar somente os números
+function ClearFormatting(const doc: string): string;
 
 implementation
 
@@ -100,6 +112,43 @@ begin
    end;
 
 //  Result := Format('%d anos, %d meses e %d dias', [years, months, days]);
+end;
+
+function GetComputerName: string;
+{$IFDEF MSWINDOWS}
+var
+  Buffer: array[0..MAX_COMPUTERNAME_LENGTH + 1] of Char;
+  Size: DWORD;
+{$ENDIF}
+
+begin
+  {$IFDEF MSWINDOWS}
+  // Código para Windows
+  Size := MAX_COMPUTERNAME_LENGTH + 1;
+  if Windows.GetComputerName(Buffer, Size) then
+    Result := StrPas(Buffer)
+  else
+    Result := 'Desconhecido';
+  {$ENDIF}
+
+  {$IFDEF UNIX}
+  // Código para Linux/Unix
+      // Obtém o hostname do sistema
+    Result := GetHostName;
+  {$ENDIF}
+end;
+
+function ClearFormatting(const doc: string): string;
+var
+   i : integer;
+   noMask : string = ''; // para receber o doc. sem a máscara.
+begin
+   for i := 1 to Length(doc) do
+   begin
+      if doc[i] in ['0'..'9'] then
+         noMask := noMask + doc[i];
+   end;
+   result := noMask;
 end;
 
 end.

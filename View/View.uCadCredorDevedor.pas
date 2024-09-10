@@ -15,8 +15,8 @@ uses
    ComCtrls,
    StdCtrls,
    DBGrids,
-   EditBtn, BCMDButtonFocus, BCButtonFocus,
-   DateTimePicker,
+   EditBtn,
+   BCButtonFocus,
    ACBrValidador,
    ACBrCEP;
 
@@ -84,9 +84,6 @@ type
       procedure FormShow(Sender: TObject);
       procedure rgTipoPessoaSelectionChanged(Sender: TObject);
    private
-      // Retirar a formatação e retornar somente os números
-      function ClearFormatting(const doc: string): string;
-
       //Fazer a troca de aba e trocar as cores dos botões para indicar qual aba está ativa.
       procedure ActiveDeactiveButton(AButton: TBCButtonFocus; ATabSheet: TTabSheet);
    public
@@ -295,19 +292,6 @@ begin
       edtCpfCnpj.Visible := false;
       shpUnderlineCpfCnpj.Visible := false;
    end;
-end;
-
-function TfrmCadCredorDevedor.ClearFormatting(const doc: string): string;
-var
-   i : integer;
-   noMask : string = ''; // para receber o doc. sem a máscara.
-begin
-   for i := 1 to Length(doc) do
-   begin
-      if doc[i] in ['0'..'9'] then
-         noMask := noMask + doc[i];
-   end;
-   result := noMask;
 end;
 
 procedure TfrmCadCredorDevedor.ActiveDeactiveButton(AButton: TBCButtonFocus; ATabSheet: TTabSheet);

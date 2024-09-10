@@ -11,7 +11,8 @@ uses
    Controls,
    Graphics,
    Dialogs,
-   StdCtrls, DBGrids;
+   StdCtrls,
+   DBGrids;
 
 type
 

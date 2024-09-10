@@ -6,7 +6,8 @@ object frmTypePayment: TfrmTypePayment
   Caption = 'Cadastro de Formas de Pagamento'
   ClientHeight = 240
   ClientWidth = 393
-  LCLVersion = '3.2.0.0'
+  Color = 16448250
+  LCLVersion = '3.4.0.0'
   object lblNamePayment: TLabel
     AnchorSideLeft.Control = edtNamePayment
     AnchorSideBottom.Control = edtNamePayment
@@ -22,6 +23,7 @@ object frmTypePayment: TfrmTypePayment
     Height = 31
     Top = 64
     Width = 297
+    Color = 13828095
     TabOrder = 0
   end
   object dbgrdTypePay: TDBGrid
