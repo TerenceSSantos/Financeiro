@@ -18,6 +18,9 @@ type
    // Indicação da operação a ser realizada.
    TStatusDataSet = (sdsBrowse, sdsInsert, sdsEdit, sdsDelete, sdsPost, sdsCancel);
 
+   // Declaração de eventos
+   TOnActionEvent = procedure(Status: TStatusDataSet) of object;
+
    { TframeButtons }
 
    TframeButtons = class(TFrame)
@@ -34,11 +37,15 @@ type
       procedure bcbtnNewClick(Sender: TObject);
       procedure bcbtnPostClick(Sender: TObject);
    private
-      status : TStatusDataSet;
+      FOnAction: TOnActionEvent;
+      FStatus: TStatusDataSet;
 
-      procedure StateButtons;
+      procedure SetStatus(AStatus: TStatusDataSet);
+      procedure UpdateButtons;
    public
-
+      constructor Create(AOwner: TComponent); override;
+      property Status: TStatusDataSet read FStatus write SetStatus;
+      property OnAction: TOnActionEvent read FOnAction write FOnAction;
    end;
 
 implementation
@@ -50,52 +57,69 @@ implementation
 procedure TframeButtons.bcbtnNewClick(Sender: TObject);
 begin
    status := sdsInsert;
-   StateButtons;
 end;
 
 procedure TframeButtons.bcbtnPostClick(Sender: TObject);
 begin
    status := sdsPost;
-   StateButtons;
 end;
 
-procedure TframeButtons.StateButtons;
+procedure TframeButtons.UpdateButtons;
 begin
-   if status in [sdsInsert, sdsEdit] then
-   begin
-      bcbtnNew.Enabled := false;
-      bcbtnEdit.Enabled := false;
-      bcbtnDelete.Enabled := false;
-      bcbtnPost.Enabled := true;
-      bcbtnCancel.Enabled := true;
+   case FStatus of
+      sdsBrowse,
+      sdsCancel,
+      sdsPost   : begin
+                     bcbtnNew.Enabled := true;
+                     bcbtnEdit.Enabled := true;
+                     bcbtnDelete.Enabled := true;
+                     bcbtnPost.Enabled := false;
+                     bcbtnCancel.Enabled := false;
+                  end;
+      sdsInsert,
+      sdsEdit   : begin
+                     bcbtnNew.Enabled := false;
+                     bcbtnEdit.Enabled := false;
+                     bcbtnDelete.Enabled := false;
+                     bcbtnPost.Enabled := true;
+                     bcbtnCancel.Enabled := true;
+                  end;
    end;
+end;
 
-   if status in [sdsBrowse, sdsCancel, sdsPost] then
+procedure TframeButtons.SetStatus(AStatus: TStatusDataSet);
+begin
+   if FStatus <> AStatus then
    begin
-      bcbtnNew.Enabled := true;
-      bcbtnEdit.Enabled := true;
-      bcbtnDelete.Enabled := true;
-      bcbtnPost.Enabled := false;
-      bcbtnCancel.Enabled := false;
+      FStatus := AStatus;
+      UpdateButtons;
+
+      // Dispara o evento quando o status mudar
+      if Assigned(FOnAction) then
+         FOnAction(FStatus);
    end;
+end;
+
+constructor TframeButtons.Create(AOwner: TComponent);
+begin
+   inherited Create(AOwner);
+   FStatus := sdsBrowse;  // Estado inicial
+   UpdateButtons;
 end;
 
 procedure TframeButtons.bcbtnEditClick(Sender: TObject);
 begin
    status := sdsEdit;
-   StateButtons;
 end;
 
 procedure TframeButtons.bcbtnDeleteClick(Sender: TObject);
 begin
    status := sdsDelete;
-   StateButtons;
 end;
 
 procedure TframeButtons.bcbtnCancelClick(Sender: TObject);
 begin
    status := sdsCancel;
-   StateButtons;
 end;
 
 end.
