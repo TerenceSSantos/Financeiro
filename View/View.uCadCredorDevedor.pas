@@ -15,7 +15,7 @@ uses
    ComCtrls,
    StdCtrls,
    DBGrids,
-   EditBtn,
+   EditBtn, View.uFrameButtons,
    BCButtonFocus,
    ACBrValidador,
    ACBrCEP;
@@ -40,6 +40,7 @@ type
       edtNome: TEdit;
       edtNumber: TEdit;
       edtTelefone: TEdit;
+      frameButtonsCadCredDev: TframeButtons;
       lblCEP: TLabel;
       lblCity: TLabel;
       lblComplement: TLabel;

@@ -19,7 +19,8 @@ uses
    View.uCadCredorDevedor,
    View.uConfigurations,
    View.uCadNamePayments,
-   Util.utilitarios
+   Util.utilitarios,
+   View.uFrameButtons
    { you can add units after this };
 
 {$R *.res}

@@ -1,12 +1,12 @@
 object frmCadCredorDevedor: TfrmCadCredorDevedor
   Left = 601
-  Height = 395
+  Height = 447
   Top = 117
   Width = 678
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Cadastro de Credor / Devedor'
-  ClientHeight = 395
+  ClientHeight = 447
   ClientWidth = 678
   Color = 16448250
   OnCreate = FormCreate
@@ -219,18 +219,18 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
   end
   object Panel2: TPanel
     Left = 0
-    Height = 363
+    Height = 415
     Top = 32
     Width = 678
     Align = alClient
     Caption = 'Panel2'
-    ClientHeight = 363
+    ClientHeight = 415
     ClientWidth = 678
     ParentBackground = False
     TabOrder = 1
     object pcCadCredorDevedor: TPageControl
       Left = 1
-      Height = 361
+      Height = 366
       Top = 1
       Width = 676
       ActivePage = TbShtEndereco
@@ -243,7 +243,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
       TabOrder = 0
       object TbShtCredorDevedor: TTabSheet
         Caption = 'Cadastro de Credor / Devedor'
-        ClientHeight = 357
+        ClientHeight = 362
         ClientWidth = 666
         object lblNome: TLabel
           AnchorSideLeft.Control = edtNome
@@ -352,7 +352,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
         object dbgrdCredorDevedor: TDBGrid
           Left = 0
           Height = 159
-          Top = 198
+          Top = 203
           Width = 666
           Align = alBottom
           Color = clWindow
@@ -490,7 +490,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
       end
       object TbShtEndereco: TTabSheet
         Caption = 'Endereço'
-        ClientHeight = 357
+        ClientHeight = 362
         ClientWidth = 666
         object lblAddress: TLabel
           AnchorSideLeft.Control = edtAddress
@@ -512,7 +512,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideBottom.Control = edtNumber
           Left = 32
           Height = 22
-          Top = 125
+          Top = 154
           Width = 62
           Anchors = [akLeft, akBottom]
           Caption = 'Número'
@@ -541,7 +541,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
         object edtNumber: TEdit
           Left = 32
           Height = 26
-          Top = 147
+          Top = 176
           Width = 91
           BorderStyle = bsNone
           Color = 13828095
@@ -557,7 +557,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideBottom.Control = edtComplement
           Left = 334
           Height = 22
-          Top = 125
+          Top = 154
           Width = 283
           Anchors = [akLeft, akBottom]
           Caption = 'Complemento (lote, aptº, quadra, etc)'
@@ -570,7 +570,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
         object edtComplement: TEdit
           Left = 334
           Height = 26
-          Top = 147
+          Top = 176
           Width = 288
           BorderStyle = bsNone
           Color = 13828095
@@ -586,7 +586,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideBottom.Control = edtNeighborhood
           Left = 32
           Height = 22
-          Top = 203
+          Top = 261
           Width = 47
           Anchors = [akLeft, akBottom]
           Caption = 'Bairro'
@@ -599,7 +599,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
         object edtNeighborhood: TEdit
           Left = 32
           Height = 26
-          Top = 225
+          Top = 283
           Width = 255
           BorderStyle = bsNone
           Color = 13828095
@@ -645,7 +645,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideBottom.Control = edtCity
           Left = 334
           Height = 22
-          Top = 203
+          Top = 261
           Width = 51
           Anchors = [akLeft, akBottom]
           Caption = 'Cidade'
@@ -658,7 +658,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
         object edtCity: TEdit
           Left = 334
           Height = 26
-          Top = 225
+          Top = 283
           Width = 288
           BorderStyle = bsNone
           Color = 13828095
@@ -697,7 +697,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideTop.Side = asrBottom
           Left = 32
           Height = 4
-          Top = 173
+          Top = 202
           Width = 91
           Brush.Color = 8487169
           Pen.Style = psClear
@@ -708,7 +708,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideTop.Side = asrBottom
           Left = 334
           Height = 4
-          Top = 173
+          Top = 202
           Width = 288
           Brush.Color = 8487169
           Pen.Style = psClear
@@ -719,7 +719,7 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideTop.Side = asrBottom
           Left = 32
           Height = 4
-          Top = 251
+          Top = 309
           Width = 255
           Brush.Color = 8487169
           Pen.Style = psClear
@@ -730,10 +730,38 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
           AnchorSideTop.Side = asrBottom
           Left = 334
           Height = 4
-          Top = 251
+          Top = 309
           Width = 288
           Brush.Color = 8487169
           Pen.Style = psClear
+        end
+      end
+    end
+    inline frameButtonsCadCredDev: TframeButtons
+      Left = 1
+      Top = 367
+      Width = 676
+      Align = alBottom
+      ClientWidth = 676
+      TabOrder = 1
+      inherited pnlButtonsLeft: TPanel
+        inherited bcbtnNew: TBCButtonFocus
+          Left = 21
+        end
+        inherited bcbtnEdit: TBCButtonFocus
+          Left = 141
+        end
+        inherited bcbtnDelete: TBCButtonFocus
+          Left = 259
+        end
+      end
+      inherited pnlButtonsRight: TPanel
+        Left = 410
+        inherited bcbtnPost: TBCButtonFocus
+          Left = 20
+        end
+        inherited bcbtnCancel: TBCButtonFocus
+          Left = 140
         end
       end
     end

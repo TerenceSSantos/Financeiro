@@ -64,6 +64,8 @@ uses
 
 procedure TfrmConfigurations.rgTypePersonSelectionChanged(Sender: TObject);
 begin
+   edtDocument.Clear;
+
    if rgTypePerson.ItemIndex = 0 then
    begin
       lblDocument.Caption := 'CPF';
@@ -97,6 +99,7 @@ var
 begin
    validator := TACBrValidador.Create(nil);
 
+   // Após inserir os 11 números do CPF, fazer a validação e formatação
    if (Length(edtDocument.Text) = 11) and (rgTypePerson.ItemIndex = 0) then
    begin
       validator.Documento := edtDocument.Text;
@@ -109,13 +112,12 @@ begin
       end
       else
       begin
-         ShowMessage('DEU RUIM!');
          edtDocument.SetFocus;
       end;
    end
 
    else
-
+   // Após inserir os 14 números do CNPJ, fazer a validação e formatação
    if (Length(edtDocument.Text) = 14) and (rgTypePerson.ItemIndex = 1) then
    begin
       validator.Documento := edtDocument.Text;
@@ -128,10 +130,20 @@ begin
       end
       else
       begin
-         ShowMessage('DEU RUIM!');
          edtDocument.SetFocus;
       end;
-   end
+   end;
+
+   //  Tirar os pontos e traços quando apagar o texto já formatado
+   if ((Length(edtDocument.Text) < 14) and (rgTypePerson.ItemIndex = 0)) or
+      ((Length(edtDocument.Text) < 18) and (rgTypePerson.ItemIndex = 1)) then
+   begin
+      edtDocument.Text := ClearFormatting(edtDocument.Text);
+   end;
+
+
+
+   FreeAndNil(validator);
 end;
 
 procedure TfrmConfigurations.bcbtnPersonDataClick(Sender: TObject);

@@ -123,9 +123,9 @@ object frmConfigurations: TfrmConfigurations
           Font.Height = -15
           Font.Name = 'Sans'
           Font.Style = [fsBold]
-          NumbersOnly = True
           ParentFont = False
           TabOrder = 1
+          TextHint = 'Somente nº'
           OnChange = edtDocumentChange
         end
         object rgTypePerson: TRadioGroup

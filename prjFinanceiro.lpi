@@ -18,7 +18,7 @@
     <VersionInfo>
       <UseVersionInfo Value="True"/>
       <AutoIncrementBuild Value="True"/>
-      <BuildNr Value="14"/>
+      <BuildNr Value="16"/>
       <Language Value="0416"/>
     </VersionInfo>
     <BuildModes>
@@ -104,6 +104,12 @@
       <Unit>
         <Filename Value="Util/Util.utilitarios.pas"/>
         <IsPartOfProject Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="View/View.uFrameButtons.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frameButtons"/>
+        <ResourceBaseClass Value="Frame"/>
       </Unit>
     </Units>
   </ProjectOptions>

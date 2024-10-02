@@ -30,7 +30,8 @@ var
 implementation
 
 uses
-   IniFiles;
+   IniFiles,
+   Util.utilitarios;
 
 {$R *.lfm}
 
@@ -40,14 +41,12 @@ procedure TdmConexao.zconConexaoBeforeConnect(Sender: TObject);
 begin
    with zconConexao do
    begin
-      {$IfDef LINUX}
-         Database := 'Financeiro';
-      {$EndIf}
+      Database := 'Financeiro';
+      HostName := GetComputerName;
       Password := 'masterkey';
       User := 'SYSDBA';
       Protocol := 'firebird';
       Port := 30500;
-      HostName := 'localhost';
    end;
 end;
 
@@ -58,8 +57,6 @@ var
 begin
    AssignFile(arquivo, arquivoIni);
    Rewrite(arquivo);
-
-
 end;
 
 procedure TdmConexao.CheckAndCreateConfig;
@@ -80,7 +77,7 @@ begin
          ConfigFile.WriteString('Database', 'User', 'SYSDBA');
          ConfigFile.WriteString('Database', 'Protocol', 'firebird');
          ConfigFile.WriteInteger('Database', 'Port', 30500);
-         ConfigFile.WriteString('Database', 'HostName', '127.0.0.1');
+         ConfigFile.WriteString('Database', 'HostName','127.0.0.1');
       finally
          FreeAndNil(ConfigFile);
       end;
@@ -99,7 +96,7 @@ begin
    ConfigFileName := ExtractFilePath(ParamStr(0)) + 'config.conf';
    ConfigFile := TIniFile.Create(ConfigFileName);
 
-   try
+   try  {
       with zconConexao do
       begin
          Database := ConfigFile.ReadString('Database', 'Database', 'Financeiro');
@@ -109,7 +106,7 @@ begin
          Port := ConfigFile.ReadInteger('Database', 'Port', 30500);
          HostName := ConfigFile.ReadString('Database', 'HostName', '127.0.0.1');
       end;
-
+       }
       // Conecta ao banco de dados
       zconConexao.Connect;
    finally
