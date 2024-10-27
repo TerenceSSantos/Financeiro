@@ -12,7 +12,10 @@ uses
    Graphics,
    Dialogs,
    StdCtrls,
-   DBGrids;
+   DBGrids,
+   ExtCtrls,
+   ActnList,
+   View.uFrameButtons;
 
 type
 
@@ -21,7 +24,9 @@ type
    TfrmTypePayment = class(TForm)
       dbgrdTypePay: TDBGrid;
       edtNamePayment: TEdit;
+      frameBtnsPayments: TframeButtons;
       lblNamePayment: TLabel;
+      shpUnderlineNamePay: TShape;
    private
 
    public
@@ -32,6 +37,10 @@ var
    frmTypePayment: TfrmTypePayment;
 
 implementation
+
+uses
+   Controller.uPaymentMethod,
+   Model.uPaymentMethod;
 
 {$R *.lfm}
 

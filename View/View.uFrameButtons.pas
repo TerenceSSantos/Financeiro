@@ -10,7 +10,7 @@ uses
    Forms,
    Controls,
    StdCtrls,
-   ExtCtrls,
+   ExtCtrls, ActnList,
    BCButtonFocus;
 
 type
@@ -24,6 +24,12 @@ type
    { TframeButtons }
 
    TframeButtons = class(TFrame)
+      actFrameButtons: TActionList;
+      actNew: TAction;
+      actUpdate: TAction;
+      actDelete: TAction;
+      actPost: TAction;
+      actCancel: TAction;
       bcbtnNew: TBCButtonFocus;
       bcbtnEdit: TBCButtonFocus;
       bcbtnDelete: TBCButtonFocus;
@@ -31,6 +37,11 @@ type
       bcbtnCancel: TBCButtonFocus;
       pnlButtonsLeft: TPanel;
       pnlButtonsRight: TPanel;
+      procedure actCancelExecute(Sender: TObject);
+      procedure actDeleteExecute(Sender: TObject);
+      procedure actNewExecute(Sender: TObject);
+      procedure actPostExecute(Sender: TObject);
+      procedure actUpdateExecute(Sender: TObject);
       procedure bcbtnCancelClick(Sender: TObject);
       procedure bcbtnDeleteClick(Sender: TObject);
       procedure bcbtnEditClick(Sender: TObject);
@@ -56,12 +67,12 @@ implementation
 
 procedure TframeButtons.bcbtnNewClick(Sender: TObject);
 begin
-   status := sdsInsert;
+   //status := sdsInsert;
 end;
 
 procedure TframeButtons.bcbtnPostClick(Sender: TObject);
 begin
-   status := sdsPost;
+   //status := sdsPost;
 end;
 
 procedure TframeButtons.UpdateButtons;
@@ -109,17 +120,42 @@ end;
 
 procedure TframeButtons.bcbtnEditClick(Sender: TObject);
 begin
-   status := sdsEdit;
+   //status := sdsEdit;
 end;
 
 procedure TframeButtons.bcbtnDeleteClick(Sender: TObject);
 begin
-   status := sdsDelete;
+   //status := sdsDelete;
 end;
 
 procedure TframeButtons.bcbtnCancelClick(Sender: TObject);
 begin
+   //status := sdsCancel;
+end;
+
+procedure TframeButtons.actNewExecute(Sender: TObject);
+begin
+   status := sdsInsert;
+end;
+
+procedure TframeButtons.actPostExecute(Sender: TObject);
+begin
+   status := sdsPost;
+end;
+
+procedure TframeButtons.actDeleteExecute(Sender: TObject);
+begin
+   status := sdsDelete;
+end;
+
+procedure TframeButtons.actCancelExecute(Sender: TObject);
+begin
    status := sdsCancel;
+end;
+
+procedure TframeButtons.actUpdateExecute(Sender: TObject);
+begin
+   status := sdsEdit;
 end;
 
 end.

@@ -20,7 +20,9 @@ uses
    View.uConfigurations,
    View.uCadNamePayments,
    Util.utilitarios,
-   View.uFrameButtons
+   View.uFrameButtons,
+   Model.uPaymentMethod,
+   DM.uCadPaymentMethod, Controller.uPaymentMethod
    { you can add units after this };
 
 {$R *.res}

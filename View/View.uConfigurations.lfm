@@ -15,7 +15,7 @@ object frmConfigurations: TfrmConfigurations
     Height = 298
     Top = 33
     Width = 567
-    PageIndex = 1
+    PageIndex = 0
     Align = alBottom
     TabOrder = 0
     object pageConfigConection: TPage
@@ -26,17 +26,23 @@ object frmConfigurations: TfrmConfigurations
         Left = 64
         Height = 19
         Top = 41
-        Width = 99
+        Width = 104
         Anchors = [akLeft, akBottom]
         Caption = 'Banco de Dados'
+        Font.Color = 8454401
+        Font.Style = [fsBold]
+        ParentFont = False
       end
       object edtDatabase: TEdit
         Left = 64
-        Height = 23
+        Height = 26
         Top = 60
         Width = 392
         BorderStyle = bsNone
         Color = 13828095
+        Font.Height = -15
+        Font.Style = [fsBold]
+        ParentFont = False
         TabOrder = 0
       end
       object shpUnderlineDatabase: TShape
@@ -47,7 +53,7 @@ object frmConfigurations: TfrmConfigurations
         AnchorSideRight.Side = asrBottom
         Left = 64
         Height = 4
-        Top = 83
+        Top = 86
         Width = 392
         Anchors = [akTop, akLeft, akRight]
         Brush.Color = 8487169
@@ -142,7 +148,7 @@ object frmConfigurations: TfrmConfigurations
           ChildSizing.ShrinkVertical = crsScaleChilds
           ChildSizing.Layout = cclLeftToRightThenTopToBottom
           ChildSizing.ControlsPerLine = 1
-          ClientHeight = 57
+          ClientHeight = 60
           ClientWidth = 140
           Font.Color = 8454401
           Font.Height = -15

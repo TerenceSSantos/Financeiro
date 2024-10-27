@@ -23,6 +23,8 @@ type
       tlbarPrincipal: TToolBar;
       tlbtnConfiguracoes: TToolButton;
       tlbtnCredorDevedor: TToolButton;
+      tlbtnCadPayment: TToolButton;
+      procedure tlbtnCadPaymentClick(Sender: TObject);
       procedure tlbtnConfiguracoesClick(Sender: TObject);
       procedure tlbtnCredorDevedorClick(Sender: TObject);
    private
@@ -38,7 +40,8 @@ implementation
 
 uses
    View.uCadCredorDevedor,
-   View.uConfigurations;
+   View.uConfigurations,
+   View.uCadNamePayments;
 
 {$R *.lfm}
 
@@ -62,6 +65,16 @@ begin
       frmConfigurations.ShowModal;
    finally
       FreeAndNil(frmConfigurations);
+   end;
+end;
+
+procedure TfrmPrincipal.tlbtnCadPaymentClick(Sender: TObject);
+begin
+   try
+      frmTypePayment := TfrmTypePayment.Create(Self);
+      frmTypePayment.ShowModal;
+   finally
+      FreeAndNil(frmTypePayment);
    end;
 end;
 

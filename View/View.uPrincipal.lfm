@@ -7,7 +7,7 @@ object frmPrincipal: TfrmPrincipal
   ClientHeight = 434
   ClientWidth = 867
   Position = poScreenCenter
-  LCLVersion = '3.2.0.0'
+  LCLVersion = '3.4.0.0'
   object pnlBarraFerramentasPrincipal: TPanel
     Left = 0
     Height = 60
@@ -50,6 +50,14 @@ object frmPrincipal: TfrmPrincipal
         Caption = 'Cad. Credor/Devedor'
         ImageIndex = 1
         OnClick = tlbtnCredorDevedorClick
+      end
+      object tlbtnCadPayment: TToolButton
+        Left = 237
+        Top = 0
+        Caption = 'Cadastro de Pagamento'
+        ImageIndex = 7
+        OnClick = tlbtnCadPaymentClick
+        Wrap = True
       end
     end
   end

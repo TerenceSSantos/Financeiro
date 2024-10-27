@@ -9,8 +9,8 @@ object frameButtons: TframeButtons
   ParentBackground = False
   ParentColor = False
   TabOrder = 0
-  DesignLeft = 314
-  DesignTop = 122
+  DesignLeft = 298
+  DesignTop = 116
   object pnlButtonsLeft: TPanel
     Left = 0
     Height = 47
@@ -26,6 +26,7 @@ object frameButtons: TframeButtons
       Height = 30
       Top = 8
       Width = 103
+      Action = actNew
       StateClicked.Background.Color = 8487169
       StateClicked.Background.Gradient1.StartColor = 8404992
       StateClicked.Background.Gradient1.EndColor = 4194304
@@ -101,7 +102,6 @@ object frameButtons: TframeButtons
       StateNormal.FontEx.ShadowOffsetX = 1
       StateNormal.FontEx.ShadowOffsetY = 1
       StateNormal.FontEx.Style = [fsBold]
-      Caption = 'Novo'
       Color = clNone
       DropDownWidth = 16
       DropDownArrowSize = 8
@@ -123,6 +123,7 @@ object frameButtons: TframeButtons
       Height = 30
       Top = 8
       Width = 103
+      Action = actUpdate
       StateClicked.Background.Color = 8487169
       StateClicked.Background.Gradient1.StartColor = 8404992
       StateClicked.Background.Gradient1.EndColor = 4194304
@@ -198,7 +199,6 @@ object frameButtons: TframeButtons
       StateNormal.FontEx.ShadowOffsetX = 1
       StateNormal.FontEx.ShadowOffsetY = 1
       StateNormal.FontEx.Style = [fsBold]
-      Caption = 'Alterar'
       Color = clNone
       DropDownWidth = 16
       DropDownArrowSize = 8
@@ -220,6 +220,7 @@ object frameButtons: TframeButtons
       Height = 30
       Top = 8
       Width = 103
+      Action = actDelete
       StateClicked.Background.Color = 8487169
       StateClicked.Background.Gradient1.StartColor = 8404992
       StateClicked.Background.Gradient1.EndColor = 4194304
@@ -295,7 +296,6 @@ object frameButtons: TframeButtons
       StateNormal.FontEx.ShadowOffsetX = 1
       StateNormal.FontEx.ShadowOffsetY = 1
       StateNormal.FontEx.Style = [fsBold]
-      Caption = 'Apagar'
       Color = clNone
       DropDownWidth = 16
       DropDownArrowSize = 8
@@ -328,6 +328,7 @@ object frameButtons: TframeButtons
       Height = 30
       Top = 8
       Width = 103
+      Action = actPost
       StateClicked.Background.Color = 8487169
       StateClicked.Background.Gradient1.StartColor = 8404992
       StateClicked.Background.Gradient1.EndColor = 4194304
@@ -403,7 +404,6 @@ object frameButtons: TframeButtons
       StateNormal.FontEx.ShadowOffsetX = 1
       StateNormal.FontEx.ShadowOffsetY = 1
       StateNormal.FontEx.Style = [fsBold]
-      Caption = 'Gravar'
       Color = clNone
       DropDownWidth = 16
       DropDownArrowSize = 8
@@ -426,6 +426,7 @@ object frameButtons: TframeButtons
       Height = 30
       Top = 8
       Width = 103
+      Action = actCancel
       StateClicked.Background.Color = 8487169
       StateClicked.Background.Gradient1.StartColor = 8404992
       StateClicked.Background.Gradient1.EndColor = 4194304
@@ -501,7 +502,6 @@ object frameButtons: TframeButtons
       StateNormal.FontEx.ShadowOffsetX = 1
       StateNormal.FontEx.ShadowOffsetY = 1
       StateNormal.FontEx.Style = [fsBold]
-      Caption = 'Cancelar'
       Color = clNone
       DropDownWidth = 16
       DropDownArrowSize = 8
@@ -518,6 +518,35 @@ object frameButtons: TframeButtons
       ImageIndex = 2
       MemoryUsage = bmuHighF
       TabOrder = 1
+    end
+  end
+  object actFrameButtons: TActionList
+    Images = dmImagens.imglstImagens
+    Left = 376
+    object actNew: TAction
+      Caption = 'Novo'
+      ImageIndex = 4
+      OnExecute = actNewExecute
+    end
+    object actUpdate: TAction
+      Caption = 'Alterar'
+      ImageIndex = 6
+      OnExecute = actUpdateExecute
+    end
+    object actDelete: TAction
+      Caption = 'Apagar'
+      ImageIndex = 3
+      OnExecute = actDeleteExecute
+    end
+    object actPost: TAction
+      Caption = 'Gravar'
+      ImageIndex = 5
+      OnExecute = actPostExecute
+    end
+    object actCancel: TAction
+      Caption = 'Cancelar'
+      ImageIndex = 2
+      OnExecute = actCancelExecute
     end
   end
 end
