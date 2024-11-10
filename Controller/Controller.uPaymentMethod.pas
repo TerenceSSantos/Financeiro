@@ -10,7 +10,8 @@ uses
    Model.uPaymentMethod,
    View.uCadNamePayments,
    DM.uCadPaymentMethod,
-   Generics.Collections;
+   ZAbstractRODataSet;
+   //Generics.Collections;
 
 type
 
@@ -22,7 +23,8 @@ type
       function EditPaymentMethod(ID: Integer; Nome: string): string;
       function DeletePaymentMethod(ID: Integer): string;
       function GetPaymentMethodByID(ID: Integer): TPaymentMethod;
-      function GetAllPaymentMethods: specialize TObjectList<TPaymentMethod>;
+      function GetAllPaymentMethods: TZAbstractRODataSet;
+//      function GetAllPaymentMethods: specialize TObjectList<TPaymentMethod>;
    end;
 
 implementation
@@ -88,6 +90,19 @@ begin
 
 end;
 
+function TPaymentMethodController.GetAllPaymentMethods: TZAbstractRODataSet;
+var
+   DM : TDMPaymentMethod;
+begin
+   try
+      DM := TDMPaymentMethod.Create;
+      result := DM.GetAll;
+   finally
+      FreeAndNil(DM);
+   end;
+end;
+
+{
 function TPaymentMethodController.GetAllPaymentMethods: specialize TObjectList<TPaymentMethod>;
 var
    DM : TDMPaymentMethod;
@@ -99,6 +114,7 @@ begin
       FreeAndNil(DM);
    end;
 end;
+}
 
 end.
 

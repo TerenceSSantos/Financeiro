@@ -8,6 +8,7 @@ object frmTypePayment: TfrmTypePayment
   ClientHeight = 359
   ClientWidth = 361
   Color = 16448250
+  OnShow = FormShow
   LCLVersion = '3.4.0.0'
   object lblNamePayment: TLabel
     AnchorSideLeft.Control = edtNamePayment
@@ -44,6 +45,7 @@ object frmTypePayment: TfrmTypePayment
     Align = alBottom
     Color = clWindow
     Columns = <>
+    DataSource = dsPayments
     TabOrder = 1
   end
   object shpUnderlineNamePay: TShape
@@ -72,6 +74,9 @@ object frmTypePayment: TfrmTypePayment
       Width = 361
       Align = alTop
       ClientWidth = 361
+      inherited bcbtnNew: TBCButtonFocus
+        OnClick = nil
+      end
     end
     inherited pnlButtonsRight: TPanel
       Left = 0
@@ -86,5 +91,15 @@ object frmTypePayment: TfrmTypePayment
         Left = 193
       end
     end
+  end
+  object dsPayments: TDataSource
+    DataSet = zmemtblPayments
+    Left = 104
+    Top = 160
+  end
+  object zmemtblPayments: TZMemTable
+    ControlsCodePage = cDynamic
+    Left = 216
+    Top = 157
   end
 end

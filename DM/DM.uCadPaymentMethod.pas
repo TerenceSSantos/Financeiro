@@ -14,7 +14,8 @@ uses
    SysUtils,
    ZDataset,
    Model.uPaymentMethod,
-   Generics.Collections;
+   ZAbstractRODataSet;
+   //Generics.Collections;
 
 type
 
@@ -26,7 +27,8 @@ type
      function Update(PaymentMethod: TPaymentMethod): string;
      function Delete(ID: Integer): string;
      function GetByID(ID: Integer): TPaymentMethod;
-     function GetAll: specialize TObjectList<TPaymentMethod>;
+     function GetAll: TZAbstractRODataSet;
+//     function GetAll: specialize TObjectList<TPaymentMethod>;
   private
      function CreatePaymentMethodFromQuery: TPaymentMethod;
   public
@@ -90,6 +92,14 @@ begin
       Result := nil;
 end;
 
+function TDMPaymentMethod.GetAll: TZAbstractRODataSet;
+begin
+   qry.SQL.Text := 'SELECT * FROM TBL_FORMA_PAGAMENTO';
+   qry.Open;
+   result := qry;
+end;
+
+{
 function TDMPaymentMethod.GetAll: specialize TObjectList<TPaymentMethod>;
 var
    List: specialize TObjectList<TPaymentMethod>;
@@ -107,7 +117,7 @@ begin                                                 // 'true' para liberar os 
     end;
     Result := List;
 end;
-
+}
 function TDMPaymentMethod.CreatePaymentMethodFromQuery: TPaymentMethod;
 begin
    Result := TPaymentMethod.Create;
@@ -117,6 +127,8 @@ end;
 
 constructor TDMPaymentMethod.Create;
 begin
+   inherited;
+   qry := TZQuery.Create(nil);
    qry.Connection := dmConexao.zconConexao;
 end;
 

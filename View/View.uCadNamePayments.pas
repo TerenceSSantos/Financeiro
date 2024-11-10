@@ -6,7 +6,7 @@ interface
 
 uses
    Classes,
-   SysUtils,
+   SysUtils, DB,
    Forms,
    Controls,
    Graphics,
@@ -14,7 +14,7 @@ uses
    StdCtrls,
    DBGrids,
    ExtCtrls,
-   ActnList,
+   ActnList, ZDataset,
    View.uFrameButtons;
 
 type
@@ -23,12 +23,15 @@ type
 
    TfrmTypePayment = class(TForm)
       dbgrdTypePay: TDBGrid;
+      dsPayments: TDataSource;
       edtNamePayment: TEdit;
       frameBtnsPayments: TframeButtons;
       lblNamePayment: TLabel;
       shpUnderlineNamePay: TShape;
+      zmemtblPayments: TZMemTable;
+      procedure FormShow(Sender: TObject);
    private
-
+      procedure LoadMemDataSet;
    public
 
    end;
@@ -43,6 +46,27 @@ uses
    Model.uPaymentMethod;
 
 {$R *.lfm}
+
+{ TfrmTypePayment }
+
+procedure TfrmTypePayment.FormShow(Sender: TObject);
+begin
+   LoadMemDataSet;
+end;
+
+procedure TfrmTypePayment.LoadMemDataSet;
+var
+   controllerPayMethod : TPaymentMethodController;
+begin
+   zmemtblPayments.Close;
+   try
+      controllerPayMethod := TPaymentMethodController.Create;
+      zmemtblPayments.AssignDataFrom(controllerPayMethod.GetAllPaymentMethods);
+      zmemtblPayments.Open;
+   finally
+      FreeAndNil(controllerPayMethod);
+   end;
+end;
 
 end.
 
