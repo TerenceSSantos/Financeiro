@@ -1,11 +1,6 @@
 unit DM.uCadPaymentMethod;
 
 {$mode ObjFPC}{$H+}
-// para a "function GetAll: TObjectList<TPaymentMethod>;" não dar erro no {mode ObjFPC}
-// deve-se usar a palavra reservada "specilize".
-
-// Mode Delphi, faz a declaração "function GetAll: TObjectList<TPaymentMethod>;" funcionar
-//{$mode delphi} {$H+}
 
 interface
 
@@ -14,8 +9,8 @@ uses
    SysUtils,
    ZDataset,
    Model.uPaymentMethod,
-   ZAbstractRODataSet;
-   //Generics.Collections;
+   fpjson,
+   fpjsondataset;
 
 type
 
@@ -26,8 +21,9 @@ type
      function Insert(PaymentMethod: TPaymentMethod): string;
      function Update(PaymentMethod: TPaymentMethod): string;
      function Delete(ID: Integer): string;
-     function GetByID(ID: Integer): TPaymentMethod;
-     function GetAll: TZAbstractRODataSet;
+//     function GetByID(ID: Integer): TPaymentMethod;
+     function GetAll: string;
+     function GetByName(const AName: string) : string;
 //     function GetAll: specialize TObjectList<TPaymentMethod>;
   private
      function CreatePaymentMethodFromQuery: TPaymentMethod;
@@ -80,44 +76,81 @@ begin
    end;
 end;
 
-function TDMPaymentMethod.GetByID(ID: Integer): TPaymentMethod;
+function TDMPaymentMethod.GetByName(const AName: string): string;
+var
+   jsonArray : TJSONArray;
+   jsonObject : TJSONObject;
 begin
-   qry.SQL.Text := 'SELECT * FROM TBL_FORMA_PAGAMENTO WHERE ID_FORMA_PAGAMENTO = :ID';
-   qry.ParamByName('ID').AsInteger := ID;
+   qry.SQL.Text := 'SELECT * FROM TBL_FORMA_PAGAMENTO WHERE NOME_FORMA_PAGAMENTO CONTAINING ' + QuotedStr(AName);
    qry.Open;
 
    if not qry.IsEmpty then
-      Result := CreatePaymentMethodFromQuery
+   begin
+      // Criar um novo array JSON
+      jsonArray := TJSONArray.Create;
+
+      try
+         // Iterar pelos registros da consulta
+         while not qry.EOF do
+         begin
+            // Criar e adicionar um objeto diretamente ao array
+            jsonObject := TJSONObject.Create;
+
+            // Adicionar os campos da consulta com propriedades do objeto
+            jsonObject.Add('ID_FORMA_PAGAMENTO', qry.FieldByName('ID_FORMA_PAGAMENTO').AsInteger);
+            jsonObject.Add('NOME_FORMA_PAGAMENTO', qry.FieldByName('NOME_FORMA_PAGAMENTO').AsString);
+
+            jsonArray.Add(jsonObject);
+
+            qry.Next;
+         end;
+
+         //converter o array para string JSON
+         Result := jsonArray.FormatJSON;
+
+      finally
+         FreeAndNil(jsonArray);
+      end;
+   end
    else
-      Result := nil;
+      Result := EmptyStr;
 end;
 
-function TDMPaymentMethod.GetAll: TZAbstractRODataSet;
+function TDMPaymentMethod.GetAll: string;
+var
+   jsonArray : TJSONArray;
+   jsonObject : TJSONObject;
 begin
    qry.SQL.Text := 'SELECT * FROM TBL_FORMA_PAGAMENTO';
    qry.Open;
-   result := qry;
+
+   // Criar um novo array json
+   jsonArray := TJSONArray.Create;
+
+   try
+      // Iterar pelos registros da consulta
+      while not qry.EOF do
+      begin
+         // Criar e adicionar um objeto diretamente ao array
+        jsonObject := TJSONObject.Create;
+
+        // Adicionar os campos da consulta como propriedades do objeto
+        jsonObject.Add('ID_FORMA_PAGAMENTO', qry.FieldByName('ID_FORMA_PAGAMENTO').AsInteger);
+        jsonObject.Add('NOME_FORMA_PAGAMENTO', qry.FieldByName('NOME_FORMA_PAGAMENTO').AsString);
+
+        jsonArray.Add(jsonObject);
+
+        qry.Next;
+      end;
+
+      // Converter o array para string JSON
+      result := jsonArray.FormatJSON;
+   finally
+      // Liberar memória do array (ele gerencia automaticamente os objetos internos)
+      FreeAndNil(jsonArray);
+   end;
 end;
 
-{
-function TDMPaymentMethod.GetAll: specialize TObjectList<TPaymentMethod>;
-var
-   List: specialize TObjectList<TPaymentMethod>;
-   PaymentMethod: TPaymentMethod;
-begin                                                 // 'true' para liberar os objetos automaticamente,
-    List := specialize TObjectList<TPaymentMethod>.Create(true); // apesar de true ser o valor default
-    qry.SQL.Text := 'SELECT * FROM TBL_FORMA_PAGAMENTO';
-    qry.Open;
-
-    while not qry.EOF do
-    begin
-       PaymentMethod := CreatePaymentMethodFromQuery;
-       List.Add(PaymentMethod);
-       qry.Next;
-    end;
-    Result := List;
-end;
-}
 function TDMPaymentMethod.CreatePaymentMethodFromQuery: TPaymentMethod;
 begin
    Result := TPaymentMethod.Create;

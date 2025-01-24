@@ -1,7 +1,7 @@
 object frmTypePayment: TfrmTypePayment
-  Left = 321
+  Left = 869
   Height = 359
-  Top = 118
+  Top = 216
   Width = 361
   BorderStyle = bsSingle
   Caption = 'Cadastro de Formas de Pagamento'
@@ -9,7 +9,7 @@ object frmTypePayment: TfrmTypePayment
   ClientWidth = 361
   Color = 16448250
   OnShow = FormShow
-  LCLVersion = '3.4.0.0'
+  LCLVersion = '3.6.0.0'
   object lblNamePayment: TLabel
     AnchorSideLeft.Control = edtNamePayment
     AnchorSideBottom.Control = edtNamePayment
@@ -36,6 +36,7 @@ object frmTypePayment: TfrmTypePayment
     ParentFont = False
     TabOrder = 0
     TextHint = 'Nome da forma de pagamento'
+    OnChange = edtNamePaymentChange
   end
   object dbgrdTypePay: TDBGrid
     Left = 0
@@ -44,7 +45,15 @@ object frmTypePayment: TfrmTypePayment
     Width = 361
     Align = alBottom
     Color = clWindow
-    Columns = <>
+    Columns = <    
+      item
+        Title.Caption = 'Código'
+        FieldName = 'ID_FORMA_PAGAMENTO'
+      end    
+      item
+        Title.Caption = 'Forma de Pagamento'
+        FieldName = 'NOME_FORMA_PAGAMENTO'
+      end>
     DataSource = dsPayments
     TabOrder = 1
   end
@@ -93,13 +102,22 @@ object frmTypePayment: TfrmTypePayment
     end
   end
   object dsPayments: TDataSource
-    DataSet = zmemtblPayments
+    DataSet = jsondsPayMethods
     Left = 104
     Top = 160
   end
-  object zmemtblPayments: TZMemTable
-    ControlsCodePage = cDynamic
+  object jsondsPayMethods: TJSONDataSet
+    FieldDefs = <    
+      item
+        Name = 'ID_FORMA_PAGAMENTO'
+        DataType = ftSmallint
+      end    
+      item
+        Name = 'NOME_FORMA_PAGAMENTO'
+        DataType = ftString
+        Size = 10
+      end>
     Left = 216
-    Top = 157
+    Top = 160
   end
 end

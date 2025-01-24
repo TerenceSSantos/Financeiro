@@ -744,26 +744,6 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
       Align = alBottom
       ClientWidth = 676
       TabOrder = 1
-      inherited pnlButtonsLeft: TPanel
-        inherited bcbtnNew: TBCButtonFocus
-          Left = 21
-        end
-        inherited bcbtnEdit: TBCButtonFocus
-          Left = 141
-        end
-        inherited bcbtnDelete: TBCButtonFocus
-          Left = 259
-        end
-      end
-      inherited pnlButtonsRight: TPanel
-        Left = 410
-        inherited bcbtnPost: TBCButtonFocus
-          Left = 20
-        end
-        inherited bcbtnCancel: TBCButtonFocus
-          Left = 140
-        end
-      end
     end
   end
   object ACBrValidador: TACBrValidador
@@ -773,7 +753,6 @@ object frmCadCredorDevedor: TfrmCadCredorDevedor
   end
   object ACBrCEP: TACBrCEP
     ProxyPort = '8080'
-    ParseText = True
     WebService = wsViaCep
     PesquisarIBGE = True
     OnBuscaEfetuada = ACBrCEPBuscaEfetuada

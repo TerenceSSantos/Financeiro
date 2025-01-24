@@ -9,9 +9,7 @@ uses
    SysUtils,
    Model.uPaymentMethod,
    View.uCadNamePayments,
-   DM.uCadPaymentMethod,
-   ZAbstractRODataSet;
-   //Generics.Collections;
+   DM.uCadPaymentMethod;
 
 type
 
@@ -22,9 +20,9 @@ type
       function AddPaymentMethod(Nome: string): string;
       function EditPaymentMethod(ID: Integer; Nome: string): string;
       function DeletePaymentMethod(ID: Integer): string;
-      function GetPaymentMethodByID(ID: Integer): TPaymentMethod;
-      function GetAllPaymentMethods: TZAbstractRODataSet;
-//      function GetAllPaymentMethods: specialize TObjectList<TPaymentMethod>;
+      function GetByName(const AName: string): string;
+      function GetAllPaymentMethods: string;
+
    end;
 
 implementation
@@ -56,7 +54,7 @@ begin
    try
       paymentMethod := TPaymentMethod.Create;
       DM := TDMPaymentMethod.Create;
-      paymentMethod := DM.GetByID(ID);
+//      paymentMethod := DM.GetByID(ID);
       PaymentMethod.Nome := Nome;
       Result := DM.Update(PaymentMethod);
    finally
@@ -77,33 +75,20 @@ begin
    end;
 end;
 
-function TPaymentMethodController.GetPaymentMethodByID(ID: Integer): TPaymentMethod;
+function TPaymentMethodController.GetByName(const AName: string): string;
 var
    DM : TDMPaymentMethod;
 begin
    try
       DM := TDMPaymentMethod.Create;
-      result := DM.GetByID(ID);
+      result := DM.GetByName(AName);
    finally
       FreeAndNil(DM);
    end;
 
 end;
 
-function TPaymentMethodController.GetAllPaymentMethods: TZAbstractRODataSet;
-var
-   DM : TDMPaymentMethod;
-begin
-   try
-      DM := TDMPaymentMethod.Create;
-      result := DM.GetAll;
-   finally
-      FreeAndNil(DM);
-   end;
-end;
-
-{
-function TPaymentMethodController.GetAllPaymentMethods: specialize TObjectList<TPaymentMethod>;
+function TPaymentMethodController.GetAllPaymentMethods: string;
 var
    DM : TDMPaymentMethod;
 begin
@@ -114,7 +99,6 @@ begin
       FreeAndNil(DM);
    end;
 end;
-}
 
 end.
 

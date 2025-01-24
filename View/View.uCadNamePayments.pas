@@ -6,7 +6,8 @@ interface
 
 uses
    Classes,
-   SysUtils, DB,
+   SysUtils,
+   DB,
    Forms,
    Controls,
    Graphics,
@@ -14,7 +15,9 @@ uses
    StdCtrls,
    DBGrids,
    ExtCtrls,
-   ActnList, ZDataset,
+   ActnList,
+   fpjsonDataset,
+   fpjson,
    View.uFrameButtons;
 
 type
@@ -26,12 +29,15 @@ type
       dsPayments: TDataSource;
       edtNamePayment: TEdit;
       frameBtnsPayments: TframeButtons;
+      jsondsPayMethods: TJSONDataSet;
       lblNamePayment: TLabel;
       shpUnderlineNamePay: TShape;
-      zmemtblPayments: TZMemTable;
+      procedure edtNamePaymentChange(Sender: TObject);
       procedure FormShow(Sender: TObject);
    private
-      procedure LoadMemDataSet;
+      jsonArray : TJSONArray;
+      procedure LoadJSONDataSet;
+      procedure SearchByName(const AName: string);
    public
 
    end;
@@ -51,18 +57,70 @@ uses
 
 procedure TfrmTypePayment.FormShow(Sender: TObject);
 begin
-   LoadMemDataSet;
+   LoadJSONDataSet;
 end;
 
-procedure TfrmTypePayment.LoadMemDataSet;
+procedure TfrmTypePayment.edtNamePaymentChange(Sender: TObject);
+begin
+   if Length(edtNamePayment.Text) >= 3 then
+      SearchByName(edtNamePayment.Text)
+   else
+      LoadJSONDataSet;;
+end;
+
+procedure TfrmTypePayment.LoadJSONDataSet;
 var
    controllerPayMethod : TPaymentMethodController;
+   jsonString : string;
 begin
-   zmemtblPayments.Close;
+   jsondsPayMethods.Close;
+   controllerPayMethod := TPaymentMethodController.Create;
    try
-      controllerPayMethod := TPaymentMethodController.Create;
-      zmemtblPayments.AssignDataFrom(controllerPayMethod.GetAllPaymentMethods);
-      zmemtblPayments.Open;
+      jsonString := controllerPayMethod.GetAllPaymentMethods;
+
+      // Analisa a string JSON
+      jsonArray := GetJSON(jsonString) as TJSONArray;
+
+      // Exibe o JSON em uma caixa de mensagem
+      //ShowMessage(jsonString);
+
+      // Define OwnsData como True e os dados JSON serão destruídos quando o conjunto de dados for destruído
+      jsondsPayMethods.OwnsData := true;
+
+      // Os dados JSON são um array de objetos
+      jsondsPayMethods.RowType := rtJSONObject;
+
+      // Atribui os dados JSON ao conjunto de dados
+      jsondsPayMethods.Rows := jsonArray;
+      jsondsPayMethods.Open;
+   finally
+      FreeAndNil(controllerPayMethod);
+   end;
+end;
+
+procedure TfrmTypePayment.SearchByName(const AName: string);
+var
+   controllerPayMethod : TPaymentMethodController;
+   jsonString : string;
+begin
+   controllerPayMethod := TPaymentMethodController.Create;
+   jsondsPayMethods.Close;
+
+   try
+      jsonString := controllerPayMethod.GetByName(AName);
+
+      // Analisa a string JSON
+      jsonArray := GetJSON(jsonString) as TJSONArray;
+
+      // Define OwnsData como True e os dados JSON serão destruídos quando o conjunto de dados for destruído
+      jsondsPayMethods.OwnsData := true;
+
+      // Os dados JSON são um array de objetos
+      jsondsPayMethods.RowType := rtJSONObject;
+
+      // Atribui os dados JSON ao conjunto de dados
+      jsondsPayMethods.Rows := jsonArray;
+      jsondsPayMethods.Open;
    finally
       FreeAndNil(controllerPayMethod);
    end;
